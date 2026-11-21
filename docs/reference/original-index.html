@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#176b50"><title>My 12-Week Transformation</title>
+<style>
+:root{--green:#176b50;--green2:#e7f4ed;--red:#fdebea;--redtxt:#b42318;--bg:#f5f7f5;--card:#fff;--ink:#20302a;--muted:#68766f;--line:#dce5df}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:1000px;margin:auto;padding:18px}.hero{background:linear-gradient(120deg,#155b45,#368567);color:white;border-radius:18px;padding:22px}.hero h1{margin:4px 0;font-size:clamp(24px,5vw,34px)}.muted{color:var(--muted)}.hero .muted{color:#e1f0e8}
+nav{display:flex;gap:8px;overflow:auto;margin:16px 0}button,.tab{border:1px solid var(--line);background:white;color:var(--ink);padding:10px 13px;border-radius:10px;cursor:pointer;font:inherit;white-space:nowrap}.tab.active,button.primary{background:var(--green);color:white;border-color:var(--green)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:16px;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}.stat{background:#ffffff1c;border-radius:12px;padding:10px}.stat b{display:block;font-size:22px}
+label{display:block;font-size:13px;color:var(--muted)}input,select,textarea{display:block;width:100%;padding:10px;border:1px solid var(--line);border-radius:9px;background:white;color:var(--ink);font:inherit;margin-top:5px}textarea{resize:vertical}
+h2{font-size:20px;margin:0 0 10px}h3{font-size:16px;margin:0 0 8px}.hint{font-size:12px;color:var(--muted)}.meal{border-left:4px solid #80b99a;padding:8px 12px;background:#f6faf7;border-radius:8px;margin:8px 0}
+.habits{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}.habit{display:flex;align-items:center;gap:9px;padding:10px;border-radius:9px;background:var(--red);color:var(--redtxt);font-size:14px}.habit.done{background:var(--green2);color:var(--green)}.habit input{width:18px;height:18px;margin:0;accent-color:var(--green)}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{padding:9px 7px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{color:var(--muted);background:#f7f9f7} .scroll{overflow:auto}
+.bar{height:9px;background:#e8eee9;border-radius:20px;overflow:hidden}.bar>i{display:block;height:100%;background:#26966b}
+section.view{display:none}section.view.active{display:block}.pill{display:inline-block;background:var(--green2);color:var(--green);padding:4px 8px;border-radius:30px;font-size:12px}
+.review{border:1px solid var(--line);border-radius:12px;padding:13px;margin:10px 0}.smallbtn{font-size:12px;padding:6px 9px}
+@media(max-width:520px){main{padding:12px}.stats{grid-template-columns:repeat(3,1fr)}.panel{padding:13px}}
+.chartbox{width:100%;overflow:hidden}.chartbox svg{display:block;width:100%;height:auto;min-height:180px}.chart-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:8px}.legend-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--green);margin-right:5px}.legend-line{display:inline-block;width:18px;border-top:2px dashed #b7791f;margin-right:5px;vertical-align:middle}
+</style></head>
+<body><main>
+<header class="hero">
+ <div class="muted">NOVEMBER 21, 2026 – FEBRUARY 12, 2027 · 84 DAYS</div>
+ <h1>My 12-Week Transformation 🌿</h1><div class="muted">Five pillars. Four 21-day chapters. Progress without perfection.</div>
+ <div class="stats"><div class="stat"><span class="muted">Starting weight</span><b id="heroStart">71 kg</b></div><div class="stat"><span class="muted">Goal marker</span><b id="heroGoal">59 kg</b></div><div class="stat"><span class="muted">Days logged</span><b id="heroDays">0 / 84</b></div></div>
+</header>
+<nav><button class="tab active" data-view="entry">Today</button><button class="tab" data-view="weekly">Weekly progress</button><button class="tab" data-view="measurements">Weekly measurements</button><button class="tab" data-view="monthly">Monthly view</button><button class="tab" data-view="history">Track record</button><button class="tab" data-view="reviews">21-day reviews</button><button class="tab" data-view="targets">Goals & backup</button></nav>
+<section id="entry" class="view active">
+ <div class="panel"><h2>Your five transformation pillars</h2><div class="grid">
+ <div class="meal"><b>1 · Spiritual connection</b><div class="hint">Fajr, Dhuhr + pause, family Maghrib, daily Quran</div></div>
+ <div class="meal"><b>2 · Physical health</b><div class="hint">Nutrition, fasting, movement, measurements and health markers</div></div>
+ <div class="meal"><b>3 · Mental & emotional wellbeing</b><div class="hint">Mindfulness, gratitude, journaling and intentional breaks</div></div>
+ <div class="meal"><b>4 · Personal care & confidence</b><div class="hint">Morning glow-up and evening skincare</div></div>
+ <div class="meal"><b>5 · Intellectual growth</b><div class="hint">A protected 6:00–7:00 AM book-writing block</div></div>
+ </div></div>
+
+ <div class="panel"><h2>Daily check-in</h2><div class="grid"><label>Date<input id="date" type="date" min="2026-11-21" max="2027-02-12" value="2026-11-21"></label><label>Energy<select id="energy"><option value="">Choose</option><option>Excellent</option><option>Good</option><option>Okay</option><option>Low</option></select></label><label>Mood<select id="mood"><option value="">Choose</option><option>Great</option><option>Good</option><option>Neutral</option><option>Challenging</option></select></label></div><p class="hint" id="cycleLabel">Cycle 1 · Foundation</p></div>
+ <div class="panel"><h2>Your daily rhythm</h2>
+ <div class="meal"><b>4:00–5:00 AM · Spiritual foundation + workday startup</b><div class="hint">Fajr, Quran and personal connection with Allah. Your Claude Co-work workflow prepares a daily intelligence brief on your field, drawing on sources such as Gartner and PwC. Review the brief, download it from Google Drive and upload it to NotebookLM to create your debate-style podcast. Enjoy black coffee near the end of this block.</div></div>
+ <div class="meal"><b>5:00–6:00 AM · Physical routine + morning glow-up</b><div class="hint">Start your workout at 5 sharp. Listen to your NotebookLM debate podcast during exercise. At the end of your physical routine, do your glow-up, skincare, shower and get ready for the day.</div></div>
+ <div class="meal"><b>6:00–7:00 AM · Book writing</b><div class="hint">Your protected 60-minute writing block, immediately after your physical routine and getting-ready routine. Record minutes, words and the section you worked on.</div></div>
+ <div class="meal"><b>7:00–8:45 AM · Intentional mothering + school drop-offs</b><div class="hint">Be present with your children and handle the morning family routine.</div></div>
+ <div class="meal"><b>8:45–9:30 AM · Morning debrief + learning walk</b><div class="hint">Walk while chatting with Claude about the day's brief. Question the ideas, test your understanding and challenge your assumptions. Capture three content ideas, review your learnings and decide what you will work on today.</div></div>
+ <div class="meal"><b>9:30 AM–12:30 PM · Focused work block</b><div class="hint">Use your research, learning and daily priorities for focused execution.</div></div>
+ <div class="meal"><b>12:30–1:00 PM · Zohar (Dhuhr) spiritual + mental reset</b><div class="hint">Prayer followed by a deliberate pause. Step away from work, settle your mind and reconnect with Allah.</div></div>
+ <div class="meal"><b>1:00–2:15 PM · Focused work block</b><div class="hint">Continue priority work and bring key tasks toward closure.</div></div>
+ <div class="meal"><b>2:30–3:00 PM · Workday shutdown (30 minutes)</b><div class="hint">Review what you accomplished, close or capture open loops, identify follow-ups, prepare tomorrow's priorities and deliberately close your workday so you can be present with your family.</div></div>
+ <div class="meal"><b>Before 6:00 PM · Nourishment + family</b><div class="hint">Have dinner and finish caloric intake by your planned fasting start.</div></div>
+ <div class="meal"><b>Maghrib · Family connection</b><div class="hint">Pray Maghrib together as a family.</div></div>
+ <div class="meal"><b>Before bed · Evening reset</b><div class="hint">Evening skincare, gratitude or reflection, prepare for tomorrow and protect sleep.</div></div>
+ <p class="hint">Prayer times shift through the year, so use the actual local prayer times rather than treating the listed blocks as fixed prayer appointments. This rhythm is a guide, not a rigid timetable.</p>
+ </div>
+ <div class="panel"><h2>Fasting window</h2>
+ <div class="meal"><b>6:00 PM · Begin fast</b><div class="hint">Finish your last meal or caloric drink by your planned cutoff.</div></div>
+ <div class="meal"><b>4:55 AM · Black coffee</b><div class="hint">Black coffee without milk, cream, sugar or other calories generally keeps the fast intact. Caloric additions end the fast.</div></div>
+ <div class="meal"><b>10:00 AM · First meal</b><div class="hint">Your planned 16-hour fast ends and your 8-hour eating window begins.</div></div>
+ <div class="grid">
+  <label>Time last calories were consumed<input id="fastStart" type="time" value="18:00"></label>
+  <label>Time first calories were consumed today<input id="fastEnd" type="time" value="10:00"></label>
+  <label>Morning coffee<select id="coffeeType"><option value="">Choose</option><option selected>Black / no calories</option><option>With milk or cream</option><option>With sugar or other calories</option><option>Other / not sure</option></select></label>
+ </div>
+ <p class="pill" style="margin-top:10px">Fasting duration: <b id="fastDuration">16h 0m</b></p>
+ <p class="hint">Duration is calculated from the previous evening's last-calorie time to today's first-calorie time. If you feel dizzy, weak or unwell, stop the fast. Fasting is not suitable for everyone; check with your clinician if you have concerns.</p>
+ </div>
+ <div class="panel"><h2>Intellectual growth · Book writing</h2><p class="hint">Your daily intention is 60 minutes. Consistency matters more than forcing a word count.</p><div class="grid">
+ <label>Writing time (minutes)<input id="writingMinutes" type="number" min="0" max="600" placeholder="Target: 60"></label>
+ <label>Words written (optional)<input id="wordsWritten" type="number" min="0" placeholder="Today's word count"></label>
+ </div><label style="margin-top:10px">What did you work on?<textarea id="writingNotes" rows="2" placeholder="Chapter, section, idea, research or revision..."></textarea></label></div>
+ <div class="panel"><h2>Nutrition & measurements</h2><div class="grid">
+ <label>Calories (kcal)<input id="calories" type="number" min="0" placeholder="Actual total"></label><label>Protein (g)<input id="protein" type="number" min="0" placeholder="Actual total"></label><label>Fibre (g)<input id="fibre" type="number" min="0" placeholder="Actual total"></label><label>Water (L)<input id="water" type="number" min="0" step=".1" placeholder="Optional"></label></div><p class="hint">Record weight and waist once a week in the Weekly measurements tab so you can focus on the trend.</p></div>
+ <div class="panel"><h2>Movement · log each session separately</h2><div class="grid">
+ <label>Morning workout minutes<input id="workoutMin" type="number" min="0" placeholder="e.g. 30"></label><label>Morning workout type<select id="workoutType"><option value="">Choose</option><option>Strength</option><option>Cardio</option><option>Strength + cardio</option><option>Mobility / recovery</option><option>Rest day</option></select></label>
+ <label>First walk · after school drop-off (minutes)<input id="walk1" type="number" min="0" placeholder="e.g. 45"></label><label>Second walk · around noon (minutes)<input id="walk2" type="number" min="0" placeholder="e.g. 30"></label></div><div class="pill" style="margin-top:10px">Total movement: <b id="totalMove">0 minutes</b></div><p class="hint">The walks and workout are separate logs. They are not mandatory daily quotas—adjust intensity and duration for recovery, energy and your clinician's advice.</p></div>
+ <div class="panel"><h2>Mental & emotional wellbeing</h2><p class="hint">Choose what genuinely supported you today. These are invitations, not obligations.</p>
+ <div class="grid"><label>Mindfulness / quiet pause (minutes)<input id="mindfulnessMinutes" type="number" min="0" placeholder="Optional"></label>
+ <label>Gratitude: one thing you're grateful for<input id="gratitude" type="text" placeholder="A moment, person or blessing"></label></div>
+ <label style="margin-top:10px">Journal / emotional check-in<textarea id="journal" rows="3" placeholder="How am I feeling? What do I need? What can I release?"></textarea></label></div>
+ <div class="panel"><h2>Daily commitments · five pillars</h2><p class="hint">Green = completed · Red = not checked. Each commitment is tracked within its pillar. Optional walks and recovery days can be recorded honestly.</p><div id="habitList" class="habits"></div><div style="margin-top:12px"><div class="bar"><i id="habitBar" style="width:0%"></i></div><p class="hint" id="habitCount">0 of 21 commitments completed</p></div></div>
+ <div class="panel"><h2>Notes</h2><textarea id="notes" rows="3" placeholder="Hunger, energy, recovery, wins, challenges..."></textarea></div>
+ <div class="grid"><button class="primary" id="save">Save this day</button><button id="clear">Clear form</button></div><p class="hint" id="feedback" aria-live="polite"></p>
+</section>
+<section id="weekly" class="view"><div class="panel"><h2>Weekly performance</h2><label>Choose week<select id="weekSelect"></select></label><div id="weekSummary"></div></div></section>
+<section id="measurements" class="view">
+ <div class="panel"><h2>Weekly body measurements</h2>
+ <p class="hint">Record weight and waist once a week, ideally under similar conditions (for example, the same morning and before breakfast). The trend matters more than any single reading.</p>
+ <div class="grid">
+  <label>Measurement date<input id="measurementDate" type="date" min="2026-11-21" max="2027-02-12" value="2026-11-21"></label>
+  <label>Weight (kg)<input id="measurementWeight" type="number" min="0" step=".1" placeholder="e.g. 70.5"></label>
+  <label>Waist circumference (cm)<input id="measurementWaist" type="number" min="0" step=".1" placeholder="e.g. 82.0"></label>
+  <label>Notes (optional)<input id="measurementNotes" type="text" placeholder="Anything relevant to this week's measurement"></label>
+ </div>
+ <button class="primary" id="saveMeasurement" style="margin-top:12px">Save weekly measurement</button>
+ <p class="hint" id="measurementFeedback" aria-live="polite"></p>
+ </div>
+ <div class="panel"><h2>Weight trend</h2><div class="stats">
+  <div class="stat"><span class="muted">Latest weight</span><b id="latestWeight">—</b></div>
+  <div class="stat"><span class="muted">Change from start</span><b id="weightChange">—</b></div>
+  <div class="stat"><span class="muted">To 59 kg goal</span><b id="toGoal">—</b></div>
+ </div><div id="weightChart" class="chartbox"></div><p class="hint">The dashed line is your adjustable goal marker. Your starting weight is shown as the baseline.</p></div>
+ <div class="panel"><h2>Waist trend</h2><div id="waistChart" class="chartbox"></div><p class="hint">No daily target is needed here; look for the direction over several weeks.</p></div>
+ <div class="panel"><h2>Measurement history</h2><div class="scroll"><table><thead><tr><th>Date</th><th>Weight (kg)</th><th>Waist (cm)</th><th>Notes</th><th></th></tr></thead><tbody id="measurementRows"></tbody></table></div></div>
+</section>
+<section id="monthly" class="view"><div class="panel"><h2>Monthly overview</h2><label>Choose month<select id="monthSelect"><option value="2026-11">November 2026</option><option value="2026-12">December 2026</option><option value="2027-01">January 2027</option><option value="2027-02">February 2027</option></select></label><div id="monthSummary"></div></div></section>
+<section id="history" class="view"><div class="panel"><h2>Daily track record</h2><p class="hint">Select a date to load it into Today for editing.</p><div class="scroll"><table><thead><tr><th>Date</th><th>Habits</th><th>kcal</th><th>Protein</th><th>Fibre</th><th>Workout</th><th>Walks</th><th>Fast window</th><th>Writing</th></tr></thead><tbody id="historyRows"></tbody></table></div></div></section>
+<section id="reviews" class="view"><div class="panel"><h2>Four 21-day reviews</h2><p class="hint">Review trends, energy, strength, consistency and how sustainable the routine feels. Adjust the next chapter rather than trying to be perfect.</p><div id="reviewCards"></div></div></section>
+<section id="targets" class="view"><div class="panel"><h2>Your transformation goals</h2><div class="grid"><label>Starting weight (kg)<input id="startWeight" type="number" step=".1" value="71"></label><label>Aspirational weight marker (kg)<input id="goalWeight" type="number" step=".1" value="59"></label><label>Protein guide (g/day)<input id="targetProtein" type="number" value="105"></label><label>Fibre guide (g/day)<input id="targetFibre" type="number" value="32"></label></div><button class="primary" id="saveTargets" style="margin-top:12px">Save targets</button><p class="hint">Your daily book-writing intention is 60 minutes. Nutrition numbers are planning guides, not medical prescriptions. A 1,500 kcal target may be too low with frequent intensive exercise; reassess with your healthcare professional and adjust for energy, hunger and recovery. Because cholesterol is a concern, emphasize soluble fibre and unsaturated fats and discuss lipid results with your clinician.</p></div>
+ <div class="panel"><h2>Backup your records</h2><p class="hint">Your entries are saved in this browser on this device. Export a backup regularly, especially before changing devices or clearing browser data.</p><div class="grid"><button id="export">Export backup (JSON)</button><button id="importBtn">Import backup</button><input id="importFile" type="file" accept=".json,application/json" hidden></div></div></section>
+<footer class="hint" style="text-align:center;padding:20px">Faith · health · wellbeing · confidence · growth · 84 days 💚</footer>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id), KEY='healthJourney_20261121_v2';
+const habitGroups=[
+ {name:'Spiritual connection',items:['Fajr prayer','Dhuhr prayer + intentional pause','Family Maghrib prayer','Daily Quran reading']},
+ {name:'Physical health',items:['Black coffee and morning routine','Protein-rich first meal','Balanced, satisfying lunch','Balanced, nourishing dinner','Protein goal supported by food choices','Fibre-rich foods included','Morning workout or planned recovery','First walk or planned alternative','Second walk or planned recovery','Hydration and sleep routine','Planned fasting window completed (if appropriate)']},
+ {name:'Mental & emotional wellbeing',items:['Mindfulness / quiet pause','Gratitude practice','Journaling / emotional check-in']},
+ {name:'Personal care & confidence',items:['Morning glow-up / get ready','Evening skincare']},
+ {name:'Intellectual growth',items:['Book-writing session (aim: 60 minutes)','Workday shutdown routine completed']}
+];
+const habits=habitGroups.flatMap(g=>g.items);
+let state={entries:{},reviews:{},measurements:{},targets:{startWeight:71,goalWeight:59,targetProtein:105,targetFibre:32}};
+try{const s=JSON.parse(localStorage.getItem(KEY));if(s)state={...state,...s,entries:s.entries||{},reviews:s.reviews||{},measurements:s.measurements||{},targets:{...state.targets,...s.targets}}}catch(e){}
+if(Number(state.targets.goalWeight)===60)state.targets.goalWeight=59;
+const dates=[];for(let d=new Date(2026,10,21);d<=new Date(2027,1,12);d.setDate(d.getDate()+1))dates.push(new Date(d).toLocaleDateString('en-CA'));
+// One-time migration: preserve any weight/waist values previously entered in daily records.
+state.measurements=state.measurements||{};
+Object.keys(state.entries).forEach(d=>{const e=state.entries[d]||{};if((e.weight!==''&&e.weight!=null)||(e.waist!==''&&e.waist!=null)){
+ if(!state.measurements[d])state.measurements[d]={weight:e.weight??'',waist:e.waist??'',notes:'Migrated from earlier daily entry'};
+ delete e.weight;delete e.waist;
+}});
+const phase=d=>{let n=dates.indexOf(d);return n<21?1:n<42?2:n<63?3:4}, names={1:'Foundation',2:'Consistency',3:'Momentum',4:'Strengthen & sustain'};
+const empty=()=>({habits:Array(habits.length).fill(false)});
+const normalizeEntry=e=>{
+ e=e||empty();let h=Array.isArray(e.habits)?e.habits.slice():[];
+ if(h.length===11){const migrated=Array(habits.length).fill(false);h.forEach((v,i)=>migrated[i+4]=!!v);e.habits=migrated}
+ else {while(h.length<habits.length)h.push(false);e.habits=h.slice(0,habits.length)}
+ return e;
+};
+const get=d=>{state.entries[d]=normalizeEntry(state.entries[d]);return state.entries[d]};
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){$('feedback').textContent='Storage is full or unavailable. Export your backup.'}}
+function renderHabits(){let e=get($('date').value);$('habitList').innerHTML='';let offset=0;habitGroups.forEach(g=>{let wrap=document.createElement('div');wrap.style.marginBottom='12px';let head=document.createElement('h3');head.textContent=g.name;wrap.append(head);let list=document.createElement('div');list.className='habits';g.items.forEach((h,j)=>{let i=offset+j,l=document.createElement('label');l.className='habit'+(e.habits[i]?' done':'');let c=document.createElement('input');c.type='checkbox';c.checked=!!e.habits[i];c.addEventListener('change',()=>{e.habits[i]=c.checked;state.entries[$('date').value]=e;l.classList.toggle('done',c.checked);updateHabitCount(e);persist()});let s=document.createElement('span');s.textContent=h;l.append(c,s);list.append(l)});wrap.append(list);$('habitList').append(wrap);offset+=g.items.length});updateHabitCount(e)}
+function updateHabitCount(e){let n=e.habits.filter(Boolean).length;$('habitCount').textContent=`${n} of ${habits.length} habits completed`;$('habitBar').style.width=(n/habits.length*100)+'%'}
+const fields=['fastStart','fastEnd','coffeeType','energy','mood','calories','protein','fibre','water','workoutMin','workoutType','walk1','walk2','writingMinutes','wordsWritten','writingNotes','mindfulnessMinutes','gratitude','journal','notes'];
+function load(d){if(!dates.includes(d))return;$('date').value=d;let e=get(d);fields.forEach(k=>$(k).value=e[k]??'');$('cycleLabel').textContent=`Cycle ${phase(d)} · ${names[phase(d)]}`;renderHabits();total()}
+function fastingTotal(){
+ const a=$('fastStart').value||'18:00', b=$('fastEnd').value||'10:00';
+ let [ah,am]=a.split(':').map(Number),[bh,bm]=b.split(':').map(Number);
+ let mins=(bh*60+bm)-(ah*60+am);if(mins<0)mins+=1440;
+ $('fastDuration').textContent=`${Math.floor(mins/60)}h ${mins%60}m`;
+}
+function total(){$('totalMove').textContent=(Number($('workoutMin').value)||0)+(Number($('walk1').value)||0)+(Number($('walk2').value)||0)+' minutes';fastingTotal()}
+function read(){let e=get($('date').value);fields.forEach(k=>{let v=$(k).value;e[k]=['notes','energy','mood','workoutType','coffeeType','writingNotes','gratitude','journal'].includes(k)?v:(v===''?'':Number(v))});state.entries[$('date').value]=e;return e}
+$('date').addEventListener('change',()=>load($('date').value));['workoutMin','walk1','walk2'].forEach(k=>$(k).addEventListener('input',total));['fastStart','fastEnd'].forEach(k=>$(k).addEventListener('input',fastingTotal));
+$('save').onclick=()=>{read();persist();$('feedback').textContent='Saved for '+$('date').value+'. Your history and summaries have been updated.';renderAll()};
+$('clear').onclick=()=>{if(confirm('Clear the current form? This does not delete a saved entry.'))load($('date').value)};
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('section.view').forEach(x=>x.classList.toggle('active',x.id===b.dataset.view));renderAll()});
+function avg(es,k){let a=es.map(e=>Number(e[k])).filter(n=>Number.isFinite(n)&&n>0);return a.length?(a.reduce((x,y)=>x+y,0)/a.length).toFixed(1):'—'}
+function completion(es){let n=es.reduce((s,e)=>s+normalizeEntry(e).habits.filter(Boolean).length,0),den=es.length*habits.length;return den?Math.round(n/den*100):0}
+function summary(ds){let es=ds.map(d=>state.entries[d]).filter(Boolean),m=es.length;return `<div class="stats" style="color:var(--ink)"><div class="stat" style="background:var(--green2)"><span class="hint">Days logged</span><b>${m}/${ds.length}</b></div><div class="stat" style="background:var(--green2)"><span class="hint">Habit completion</span><b>${completion(es)}%</b></div><div class="stat" style="background:var(--green2)"><span class="hint">Avg weight</span><b>${avg(es,'weight')} kg</b></div></div><div class="grid" style="margin-top:12px"><div class="panel"><span class="hint">Average calories</span><h3>${avg(es,'calories')} kcal</h3></div><div class="panel"><span class="hint">Average protein</span><h3>${avg(es,'protein')} g</h3></div><div class="panel"><span class="hint">Average fibre</span><h3>${avg(es,'fibre')} g</h3></div><div class="panel"><span class="hint">Average workout</span><h3>${avg(es,'workoutMin')} min</h3></div><div class="panel"><span class="hint">Average first walk</span><h3>${avg(es,'walk1')} min</h3></div><div class="panel"><span class="hint">Average noon walk</span><h3>${avg(es,'walk2')} min</h3></div><div class="panel"><span class="hint">Average book writing</span><h3>${avg(es,'writingMinutes')} min</h3></div><div class="panel"><span class="hint">Average words written</span><h3>${avg(es,'wordsWritten')}</h3></div><div class="panel"><span class="hint">Latest waist recorded</span><h3>${[...es].reverse().find(e=>e.waist!==''&&e.waist!=null)?.waist??'—'} cm</h3></div></div><p class="hint">Averages use days with a recorded value; blank days are not treated as zero.</p>`}
+function renderWeekly(){let w=Number($('weekSelect').value||0),ds=dates.slice(w*7,w*7+7);$('weekSummary').innerHTML=`<p class="pill">${ds[0]} to ${ds.at(-1)}</p>`+summary(ds)}
+function renderMonthly(){let m=$('monthSelect').value,ds=dates.filter(d=>d.startsWith(m));$('monthSummary').innerHTML=summary(ds)}
+function renderHistory(){$('historyRows').innerHTML=dates.map(d=>{let e=state.entries[d];if(!e)return `<tr><td><button class="smallbtn" data-load="${d}">${d}</button></td><td class="muted">—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;let n=(e.habits||[]).filter(Boolean).length;return `<tr><td><button class="smallbtn" data-load="${d}">${d}</button></td><td>${n}/${habits.length}</td><td>${e.calories||'—'}</td><td>${e.protein||'—'}</td><td>${e.fibre||'—'}</td><td>${e.workoutMin||0}m</td><td>${e.walk1||0}+${e.walk2||0}m</td><td>${e.fastStart||'18:00'}–${e.fastEnd||'10:00'}</td><td>${e.writingMinutes||0}m</td></tr>`}).join('');$('historyRows').querySelectorAll('[data-load]').forEach(b=>b.onclick=()=>{load(b.dataset.load);document.querySelector('[data-view="entry"]').click()})}
+function renderReviews(){let periods=[['1',dates.slice(0,21)],['2',dates.slice(21,42)],['3',dates.slice(42,63)],['4',dates.slice(63,84)]];$('reviewCards').innerHTML=periods.map(([p,ds])=>{let es=ds.map(d=>state.entries[d]).filter(Boolean),r=state.reviews[p]||{};return `<div class="review"><b>Cycle ${p} · ${names[p]}</b><p class="hint">${ds[0]} – ${ds.at(-1)} · ${es.length}/21 days logged</p>${summary(ds)}<label>Waist at review (cm)<input data-waist="${p}" type="number" step=".1" value="${r.waist||''}"></label><label style="margin-top:8px">Reflection: what worked, what was difficult, and what will you adjust?<textarea data-reflect="${p}" rows="3">${escapeText(r.reflection||'')}</textarea></label><button class="primary" data-review-save="${p}" style="margin-top:8px">Save cycle review</button></div>`}).join('');$('reviewCards').querySelectorAll('[data-review-save]').forEach(b=>b.onclick=()=>{let p=b.dataset.reviewSave;state.reviews[p]={waist:$('reviewCards').querySelector(`[data-waist="${p}"]`).value,reflection:$('reviewCards').querySelector(`[data-reflect="${p}"]`).value};persist();b.textContent='Review saved ✓'})}
+function escapeText(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+
+function measurementList(){return Object.keys(state.measurements||{}).sort().filter(d=>state.measurements[d]&&(state.measurements[d].weight!==''||state.measurements[d].waist!==''))}
+function chartSvg(items,key,unit,goal=null,start=null){
+ const vals=items.map(x=>Number(x[key])).filter(Number.isFinite);
+ if(!vals.length)return '<p class="hint">No measurements yet. Add your first weekly reading above.</p>';
+ let all=vals.slice();if(goal!==null)all.push(Number(goal));if(start!==null)all.push(Number(start));
+ let min=Math.min(...all),max=Math.max(...all);if(min===max){min-=1;max+=1}
+ const pad=(max-min)*.16,minY=min-pad,maxY=max+pad;
+ const W=720,H=250,L=58,R=18,T=18,B=42,plotW=W-L-R,plotH=H-T-B;
+ const x=i=>L+(items.length===1?plotW/2:i*plotW/(items.length-1));
+ const y=v=>T+(maxY-v)*plotH/(maxY-minY);
+ let grid='';
+ for(let j=0;j<5;j++){let v=minY+(maxY-minY)*j/4,yy=y(v);grid+=`<line x1="${L}" y1="${yy}" x2="${W-R}" y2="${yy}" stroke="#e4ebe6"/><text x="${L-9}" y="${yy+4}" text-anchor="end" font-size="11" fill="#68766f">${v.toFixed(1)}</text>`}
+ let points=items.map((it,i)=>`${x(i)},${y(Number(it[key]))}`).join(' ');
+ let dots=items.map((it,i)=>`<circle cx="${x(i)}" cy="${y(Number(it[key]))}" r="5" fill="#176b50"><title>${it.date}: ${Number(it[key]).toFixed(1)} ${unit}</title></circle><text x="${x(i)}" y="${y(Number(it[key]))-11}" text-anchor="middle" font-size="11" fill="#20302a">${Number(it[key]).toFixed(1)}</text><text x="${x(i)}" y="${H-12}" text-anchor="middle" font-size="10" fill="#68766f">${it.date.slice(5)}</text>`).join('');
+ let goalLine=goal!==null?`<line x1="${L}" y1="${y(Number(goal))}" x2="${W-R}" y2="${y(Number(goal))}" stroke="#b7791f" stroke-width="2" stroke-dasharray="7 5"/><text x="${W-R}" y="${y(Number(goal))-7}" text-anchor="end" font-size="11" fill="#9a6700">Goal ${Number(goal).toFixed(1)} kg</text>`:'';
+ let startLine=start!==null?`<line x1="${L}" y1="${y(Number(start))}" x2="${W-R}" y2="${y(Number(start))}" stroke="#8b9a91" stroke-width="1.5" stroke-dasharray="3 5"/><text x="${W-R}" y="${y(Number(start))+13}" text-anchor="end" font-size="10" fill="#68766f">Start ${Number(start).toFixed(1)}</text>`:'';
+ return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${key} trend chart">${grid}${goalLine}${startLine}<polyline points="${points}" fill="none" stroke="#176b50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>${dots}</svg><div class="chart-legend"><span><i class="legend-dot"></i>Recorded ${key}</span>${goal!==null?'<span><i class="legend-line"></i>Goal marker</span>':''}</div>`;
+}
+function renderMeasurements(){
+ const ds=measurementList(),items=ds.map(date=>({date,...state.measurements[date]}));
+ const weights=items.filter(x=>x.weight!==''&&x.weight!=null),waists=items.filter(x=>x.waist!==''&&x.waist!=null);
+ const latest=weights.at(-1),first=weights[0],goal=Number(state.targets.goalWeight),start=Number(state.targets.startWeight);
+ $('latestWeight').textContent=latest?Number(latest.weight).toFixed(1)+' kg':'—';
+ $('weightChange').textContent=latest&&first?(Number(latest.weight)-start>0?'+':'')+(Number(latest.weight)-start).toFixed(1)+' kg':'—';
+ $('toGoal').textContent=latest?(Number(latest.weight)-goal>0?(Number(latest.weight)-goal).toFixed(1)+' kg to go':Math.abs(Number(latest.weight)-goal).toFixed(1)+' kg below'):'—';
+ $('weightChart').innerHTML=chartSvg(weights,'weight','kg',goal,start);
+ $('waistChart').innerHTML=chartSvg(waists,'waist','cm');
+ $('measurementRows').innerHTML=items.slice().reverse().map(x=>`<tr><td>${x.date}</td><td>${x.weight===''||x.weight==null?'—':Number(x.weight).toFixed(1)}</td><td>${x.waist===''||x.waist==null?'—':Number(x.waist).toFixed(1)}</td><td>${escapeText(x.notes||'')}</td><td><button class="smallbtn" data-edit-measure="${x.date}">Edit</button></td></tr>`).join('')||'<tr><td colspan="5" class="muted">No weekly measurements recorded yet.</td></tr>';
+ $('measurementRows').querySelectorAll('[data-edit-measure]').forEach(b=>b.onclick=()=>{const d=b.dataset.editMeasure,m=state.measurements[d];$('measurementDate').value=d;$('measurementWeight').value=m.weight??'';$('measurementWaist').value=m.waist??'';$('measurementNotes').value=m.notes??''});
+}
+$('saveMeasurement').onclick=()=>{
+ const d=$('measurementDate').value;
+ if(!dates.includes(d)){$('measurementFeedback').textContent='Choose a date within your 12-week journey.';return}
+ const w=$('measurementWeight').value,wa=$('measurementWaist').value;
+ if(w===''&&wa===''){$('measurementFeedback').textContent='Enter at least a weight or waist measurement.';return}
+ state.measurements[d]={weight:w===''?'':Number(w),waist:wa===''?'':Number(wa),notes:$('measurementNotes').value};
+ persist();renderMeasurements();$('measurementFeedback').textContent='Weekly measurement saved for '+d+'.';
+};
+function renderAll(){Object.keys(state.entries).forEach(d=>normalizeEntry(state.entries[d]));let n=Object.keys(state.entries).length;$('heroDays').textContent=n+' / 84';$('heroStart').textContent=state.targets.startWeight+' kg';$('heroGoal').textContent=state.targets.goalWeight+' kg';renderWeekly();renderMonthly();renderHistory();renderReviews();renderMeasurements()}
+for(let w=0;w<12;w++){let o=document.createElement('option');o.value=w;o.textContent=`Week ${w+1} · ${dates[w*7]} – ${dates[Math.min(w*7+6,83)]}`;$('weekSelect').append(o)}$('weekSelect').onchange=renderWeekly;$('monthSelect').onchange=renderMonthly;
+Object.keys(state.targets).forEach(k=>$(k).value=state.targets[k]);$('saveTargets').onclick=()=>{Object.keys(state.targets).forEach(k=>state.targets[k]=Number($(k).value));persist();renderAll();renderMeasurements();$('saveTargets').textContent='Targets saved ✓'};
+$('export').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='my-12-week-transformation-backup.json';a.click();URL.revokeObjectURL(u)};
+$('importBtn').onclick=()=>$('importFile').click();$('importFile').onchange=async ev=>{try{let x=JSON.parse(await ev.target.files[0].text());if(!x.entries)throw Error();state={...state,...x,measurements:x.measurements||state.measurements||{}};persist();renderAll();renderMeasurements();load($('date').value);alert('Backup imported.')}catch(e){alert('That file is not a valid tracker backup.')}};
+load('2026-11-21');renderAll();fastingTotal();
+})();
+</script></body></html>

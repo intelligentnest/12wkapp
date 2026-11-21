@@ -1,0 +1,51 @@
+-- Habit catalog: 22 habits across five pillars, in the exact order of the original app.
+-- legacy_index = position in the old app's habits[] array. Never change these IDs or indexes.
+
+insert into public.habit_definitions (id, pillar, label, description, default_sort, legacy_index, is_optional_default) values
+  ('spiritual.fajr',                'spiritual', 'Fajr prayer',                                        null, 1, 0, false),
+  ('spiritual.dhuhr_pause',         'spiritual', 'Dhuhr prayer + intentional pause',                   null, 2, 1, false),
+  ('spiritual.family_maghrib',      'spiritual', 'Family Maghrib prayer',                              null, 3, 2, false),
+  ('spiritual.quran',               'spiritual', 'Daily Quran reading',                                null, 4, 3, false),
+  ('physical.black_coffee_routine', 'physical',  'Black coffee and morning routine',                   null, 5, 4, false),
+  ('physical.protein_first_meal',   'physical',  'Protein-rich first meal',                            null, 6, 5, false),
+  ('physical.balanced_lunch',       'physical',  'Balanced, satisfying lunch',                         null, 7, 6, false),
+  ('physical.balanced_dinner',      'physical',  'Balanced, nourishing dinner',                        null, 8, 7, false),
+  ('physical.protein_goal',         'physical',  'Protein goal supported by food choices',             null, 9, 8, false),
+  ('physical.fibre_foods',          'physical',  'Fibre-rich foods included',                          null, 10, 9, false),
+  ('physical.workout_or_recovery',  'physical',  'Morning workout or planned recovery',                'Planned recovery counts.', 11, 10, true),
+  ('physical.walk_1',               'physical',  'First walk or planned alternative',                  'A planned alternative counts.', 12, 11, true),
+  ('physical.walk_2',               'physical',  'Second walk or planned recovery',                    'Planned recovery counts.', 13, 12, true),
+  ('physical.hydration_sleep',      'physical',  'Hydration and sleep routine',                        null, 14, 13, false),
+  ('physical.fasting_window',       'physical',  'Planned fasting window completed (if appropriate)',  'Optional. Stop if dizzy, weak or unwell.', 15, 14, true),
+  ('mental.mindfulness',            'mental',    'Mindfulness / quiet pause',                          null, 16, 15, false),
+  ('mental.gratitude',              'mental',    'Gratitude practice',                                 null, 17, 16, false),
+  ('mental.journal',                'mental',    'Journaling / emotional check-in',                    null, 18, 17, false),
+  ('care.morning_glowup',           'care',      'Morning glow-up / get ready',                        null, 19, 18, false),
+  ('care.evening_skincare',         'care',      'Evening skincare',                                   null, 20, 19, false),
+  ('growth.book_writing',           'growth',    'Book-writing session (aim: 60 minutes)',             null, 21, 20, false),
+  ('growth.workday_shutdown',       'growth',    'Workday shutdown routine completed',                 null, 22, 21, false);
+
+-- Default daily rhythm (informational). Users get an editable copy via seed_my_rhythm().
+insert into public.default_rhythm_blocks (sort_order, time_label, title, details, is_prayer_relative) values
+  (1,  '4:00–5:00 AM', 'Spiritual foundation + workday startup',
+       'Fajr, Quran and personal connection with Allah. Your external Claude Co-work workflow prepares the daily research brief — review it, download it from Google Drive and create your NotebookLM debate podcast. Black coffee near the end of this hour.', true),
+  (2,  '5:00–6:00 AM', 'Physical routine + morning glow-up',
+       'Workout begins at 5:00 when appropriate; listen to your NotebookLM podcast. Then glow-up, skincare, shower and get ready. Adapt for recovery and energy.', false),
+  (3,  '6:00–7:00 AM', 'Book writing',
+       'Your protected 60-minute writing block. Record minutes, optional word count and the section you worked on.', false),
+  (4,  '7:00–8:45 AM', 'Intentional mothering + school drop-offs',
+       'Be present with your children and complete the morning family routine.', false),
+  (5,  '8:45–9:30 AM', 'Morning debrief + learning walk',
+       'Walk and discuss the daily brief with Claude (your external workflow): challenge your understanding, capture three content ideas, review learnings and decide today''s priorities.', false),
+  (6,  '9:30 AM–12:30 PM', 'Focused work', 'Focused execution.', false),
+  (7,  '12:30–1:00 PM', 'Dhuhr (Zohar) + spiritual and mental reset',
+       'Prayer, an intentional pause, step away from work and reconnect.', true),
+  (8,  '1:00–2:15 PM', 'Focused work', 'Continue priority work and close key tasks.', false),
+  (9,  '2:30–3:00 PM', 'Workday shutdown',
+       'Review completed work, close or capture open loops, record follow-ups, prepare tomorrow''s priorities and deliberately close the workday.', false),
+  (10, 'Before 6:00 PM', 'Nourishment + family',
+       'Dinner, and finish caloric intake by your planned fasting start if you are following the optional fasting plan.', false),
+  (11, 'Maghrib', 'Family connection',
+       'Family Maghrib prayer — use the actual local prayer time.', true),
+  (12, 'Before bed', 'Evening reset',
+       'Evening skincare, gratitude or reflection, prepare for tomorrow and protect sleep.', false);
