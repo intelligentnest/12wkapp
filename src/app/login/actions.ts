@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
+import { headers } from "next/headers";
 import { siteUrl } from "@/lib/env";
 
 export type LoginState = { status: "idle" | "sent" | "error"; message?: string };
@@ -12,12 +13,19 @@ export async function sendMagicLink(_prev: LoginState, formData: FormData): Prom
   const parsed = schema.safeParse({ email: formData.get("email") });
   if (!parsed.success) return { status: "error", message: "Please enter a valid email address." };
 
+  // Build the link from the address actually being used, so it can never point at
+  // localhost by mistake. Supabase only honours redirect URLs on its allow-list.
+  const h = await headers();
+  const host = h.get("x-forwarded-host") ?? h.get("host");
+  const proto = h.get("x-forwarded-proto") ?? "https";
+  const origin = host ? `${proto}://${host}` : siteUrl();
+
   const supabase = await createClient();
   const { error } = await supabase.auth.signInWithOtp({
     email: parsed.data.email,
     options: {
       shouldCreateUser: false, // private app: accounts are created by the owner only
-      emailRedirectTo: `${siteUrl()}/auth/confirm`,
+      emailRedirectTo: `${origin}/auth/confirm`,
     },
   });
 
