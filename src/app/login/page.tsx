@@ -11,6 +11,11 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
         <p className="text-xs uppercase tracking-[0.2em] text-ink-muted">Private journal</p>
         <h1 className="mt-2 font-display text-3xl text-ink">My 12-Week Transformation</h1>
         <p className="mt-2 text-ink-muted">Progress without perfection.</p>
+        {error === "browser" && (
+          <p role="alert" className="mt-6 rounded-xl bg-clay-50 p-3 text-sm text-clay-700">
+            Please open the sign-in link in the same browser where you requested it, or request a new link here.
+          </p>
+        )}
         {error === "link" && (
           <p role="alert" className="mt-6 rounded-xl bg-clay-50 p-3 text-sm text-clay-700">
             That sign-in link has expired or was already used. Request a new one below.
